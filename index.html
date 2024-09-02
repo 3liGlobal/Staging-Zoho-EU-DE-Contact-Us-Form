@@ -8,20 +8,7 @@
 </head>
 
 <body class="zf-backgroundBg">
-    <script>
-        console.log("hello")
-        window.addEventListener('message', function (event) {
-            console.log("Event triggered")
-            if (event.data.utm_medium || event.data.utm_source) {
-                const leadSource = document.getElementById('lead_source');
-                const horecaExperts = document.getElementById('horeca_experts');
-                if (leadSource || horecaExperts) {
-                    leadSource.value = event.data.utm_medium || "";
-                    horecaExperts.value = event.data.utm_source || "";
-                }
-            }
-        });
-    </script>
+
     <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
     <div class="zf-templateWidth">
         <form
@@ -155,12 +142,12 @@
                             <div class="zf-clearBoth"></div>
                         </li><!---------Dropdown Ends Here---------->
                         <!---------Single Line Starts Here---------->
-                        <li class="zf-tempFrmWrapper zf-small" ><label class="zf-labelName">
+                        <li class="zf-tempFrmWrapper zf-small"><label class="zf-labelName">
                                 HoReCa Experts
                             </label>
                             <div class="zf-tempContDiv">
-                                <span> <input id="horeca_experts" type="text" name="SingleLine1" checktype="c1" value="" maxlength="255"
-                                        fieldType=1 placeholder="" /></span>
+                                <span> <input id="horeca_experts" type="text" name="SingleLine1" checktype="c1" value=""
+                                        maxlength="255" fieldType=1 placeholder="" /></span>
                                 <p id="SingleLine1_error" class="zf-errorMessage" style="display:none;">Invalid value
                                 </p>
                             </div>
@@ -204,7 +191,7 @@
                             <div class="zf-clearBoth"></div>
                         </li><!---------Decision Ends Here---------->
                         <!---------Dropdown Starts Here---------->
-                        <li class="zf-tempFrmWrapper zf-small" ><label class="zf-labelName">
+                        <li class="zf-tempFrmWrapper zf-small"><label class="zf-labelName">
                                 Lead Source
                             </label>
                             <div class="zf-tempContDiv">
@@ -229,7 +216,22 @@
         var zf_FieldArray = ["Name_First", "Name_Last", "SingleLine2", "Email", "PhoneNumber_countrycode", "SingleLine3", "SingleLine4", "Dropdown", "SingleLine1", "SingleLine", "MultiLine", "DecisionBox", "Dropdown2"];
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];</script>
-   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("hello")
+            window.addEventListener('message', function (event) {
+                console.log("Event triggered")
+                if (event.data.utm_medium || event.data.utm_source) {
+                    const leadSource = document.getElementById('lead_source');
+                    const horecaExperts = document.getElementById('horeca_experts');
+                    if (leadSource || horecaExperts) {
+                        leadSource.value = event.data.utm_medium || "";
+                        horecaExperts.value = event.data.utm_source || "";
+                    }
+                }
+            });
+        })
+    </script>
 </body>
 
 </html>
