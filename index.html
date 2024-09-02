@@ -216,6 +216,7 @@
         var isSalesIQIntegrationEnabled = false;
         var salesIQFieldsArray = [];</script>
     <script>
+        console.log("hello")
         window.addEventListener('message', function (event) {
             if (event.data.utm_medium || event.data.utm_source) {
                 const leadSource = document.getElementById('lead_source');
