@@ -11,7 +11,7 @@
     <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
     <div class="zf-templateWidth">
         <form
-            action='https://forms.zohopublic.eu/ookaportal/form/KontaktiereunsfrChatbotTest/formperma/YdqxBe6SIJeEZN_8hCt8_SJso7xLmYpWYJ8tWplY6ec/htmlRecords/submit'
+            action='https://webhook.site/e2225bee-c81c-4f08-8a7f-b73ac3092b0c'
             name='form' method='POST' onSubmit='javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();'
             accept-charset='UTF-8' enctype='multipart/form-data' id='form'><input type="hidden" name="zf_referrer_name"
                 value=""><!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
@@ -141,7 +141,7 @@
                             <div class="zf-clearBoth"></div>
                         </li><!---------Dropdown Ends Here---------->
                         <!---------Single Line Starts Here---------->
-                        <li class="zf-tempFrmWrapper zf-small" style="display: none;"><label class="zf-labelName">
+                        <li class="zf-tempFrmWrapper zf-small" ><label class="zf-labelName">
                                 HoReCa Experts
                             </label>
                             <div class="zf-tempContDiv">
@@ -190,7 +190,7 @@
                             <div class="zf-clearBoth"></div>
                         </li><!---------Decision Ends Here---------->
                         <!---------Dropdown Starts Here---------->
-                        <li class="zf-tempFrmWrapper zf-small" style="display: none;"><label class="zf-labelName">
+                        <li class="zf-tempFrmWrapper zf-small" ><label class="zf-labelName">
                                 Lead Source
                             </label>
                             <div class="zf-tempContDiv">
@@ -218,12 +218,12 @@
     <script>
         window.addEventListener('message', function (event) {
             if (event.data.utm_medium || event.data.utm_source) {
-            console.log("Here utm source: ", event.data.utm_source)
+            console.log("Here utm source: ", event.data)
                 const leadSource = document.getElementById('lead_source');
                 const horecaExperts = document.getElementById('horeca_experts');
                 if (leadSource || horecaExperts) {
                     leadSource.value = event.data.utm_medium || "";
-                    horecaExperts.value = event.data.utm_source || "";
+                    horecaExperts.value = "sami";
                 }
             }
         });
