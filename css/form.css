@@ -1158,3 +1158,6 @@ ul {
   overflow: hidden;
   font-size: 13px;
 }
+.hidden {
+  display: none;
+}
