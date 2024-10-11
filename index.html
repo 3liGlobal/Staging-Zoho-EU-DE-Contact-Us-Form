@@ -177,8 +177,8 @@
                         <li class="zf-tempFrmWrapper zf-decesion ">
                             <div class="zf-tempContDiv">
                                 <input type="checkbox" checktype="c1" id="DecisionBox" name="DecisionBox" />
-                                <label for="DecisionBox" class="zf-labelName">Ich stimme den <a href="https://de.ooka.com/de/page/agb" target="popup" onclick="window.open('https://de.ooka.com/de/page/agb','popup','width=320,height=700'); return false;">Allgemeinen
-                                    Geschäftsbedingungen und</a> der Verarbeitung meiner Daten in den <a href="https://de.ooka.com/de/content/cookie-richtlinie" target="popup" onclick="window.open('https://de.ooka.com/de/content/cookie-richtlinie','popup','width=320,height=700'); return false;">Datenschutz und
+                                <label for="DecisionBox" class="zf-labelName">Ich stimme den <a href="#" onclick="openModal1()">Allgemeinen
+                                    Geschäftsbedingungen und</a> der Verarbeitung meiner Daten in den <a href="#" onclick="openModal2()">Datenschutz und
                                     Cookie-Richtlinien zu</a>. 
                                     <em class="zf-important">*</em>
                                 </label>
@@ -206,6 +206,21 @@
                     <li class="zf-fmFooter"><button class="zf-submitColor" id="zf-submitColor">SENDEN</button></li>
                 </ul>
             </div><!-- 'zf-templateWrapper' ends -->
+            <!-- The Modal -->
+            <div>
+              <div id="myModal1" class="modal">
+               <div class="modal-content">
+               <span class="close" onclick="closeModal()">&times;</span>
+               <iframe id="modalIframe1" src="" allowfullscreen></iframe>
+               </div>
+              </div>
+              <div id="myModal2" class="modal">
+                <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <iframe id="modalIframe2" src="" allowfullscreen></iframe>
+                </div>
+               </div>
+            </div>
         </form>
     </div><!-- 'zf-templateWidth' ends -->
     <script type="text/javascript">var zf_DateRegex = new RegExp("^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
@@ -246,6 +261,50 @@
                     $('#zf-submitColor').prop('disabled', false);
                 }, 5000);
             });
+        </script>
+        <script>
+            // Open the Modal and set iframe URL
+            function openModal1() {
+                var iframeUrl = "https://de.ooka.com/de/content/agb";  // Replace with the external website URL
+                document.getElementById("modalIframe1").src = iframeUrl;
+                document.getElementById("myModal1").style.display = "block";
+            }
+        
+            // Close the Modal
+            function closeModal1() {
+                document.getElementById("myModal1").style.display = "none";
+                document.getElementById("modalIframe1").src = ""; // Clear the iframe content
+            }
+        
+            // Close the modal when clicking outside of it
+            window.onclick = function(event) {
+                var modal = document.getElementById("myModal1");
+                if (event.target == modal) {
+                    closeModal1();
+                }
+            }
+        </script>
+        <script>
+            // Open the Modal and set iframe URL
+            function openModal2() {
+                var iframeUrl = "https://de.ooka.com/de/content/cookie-richtlinie";  // Replace with the external website URL
+                document.getElementById("modalIframe1").src = iframeUrl;
+                document.getElementById("myModal1").style.display = "block";
+            }
+        
+            // Close the Modal
+            function closeModal() {
+                document.getElementById("myModal1").style.display = "none";
+                document.getElementById("modalIframe1").src = ""; // Clear the iframe content
+            }
+        
+            // Close the modal when clicking outside of it
+            window.onclick = function(event) {
+                var modal = document.getElementById("myModal1");
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
         </script>
 </body>
 
