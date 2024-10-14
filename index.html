@@ -178,7 +178,7 @@
                             <div class="zf-tempContDiv">
                                 <input type="checkbox" checktype="c1" id="DecisionBox" name="DecisionBox" />
                                 <label for="DecisionBox" class="zf-labelName">Ich stimme den <a href="#" onclick="openModal1()">Allgemeinen
-                                    Geschäftsbedingungen und</a> der Verarbeitung meiner Daten in den <a href="#" onclick="openModal2()">Datenschutz und
+                                    Geschäftsbedingungen und</a> der Verarbeitung meiner Daten in den <a href="#" id="openPopupBtn">Datenschutz und
                                     Cookie-Richtlinien zu</a>. 
                                     <em class="zf-important">*</em>
                                 </label>
@@ -214,12 +214,28 @@
                <iframe id="modalIframe1" src="" allowfullscreen></iframe>
                </div>
               </div>
-              <div id="myModal2" class="modal">
-                <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <iframe id="modalIframe2" src="" allowfullscreen></iframe>
-                </div>
-               </div>
+              <div>
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                      <span id="close">&times;</span>
+                      <h3 style="font-size: 30px;">DATENSCHUTZ UND COOKIE-RICHTLINIE</h3>
+                      <h3 class="head-pop">Was sind Cookies?</h3>
+                      <p class="p-pop">Cookies und ähnliche Technologien sind sehr kleine Text- oder Codedateien, die oft einen eindeutigen Identifizierungscode enthalten. Wenn du eine Website besuchst oder eine mobile Anwendung verwendest, fragt ein Computer deinen Computer oder dein mobiles Gerät um Erlaubnis, diese Datei auf deinem Computer oder mobilen Gerät zu speichern und auf Informationen zuzugreifen. Zu den Informationen, die durch Cookies und ähnliche Technologien gesammelt werden, können das Datum und die Uhrzeit des Besuchs sowie die Art und Weise gehören, wie Du eine bestimmte Webseite oder mobile Anwendung nutzt.</p>
+                      <h3 class="head-pop">Warum verwenden wir Cookies?</h3>
+                      <p class="p-pop">Cookies sorgen dafür, dass du während deines Besuchs in unserem Online-Shop angemeldet bleibst, dass alle Artikel in deinem Warenkorb gespeichert werden, dass du sicher einkaufen kannst und dass die Website einwandfrei funktioniert. Cookies helfen uns auch dabei, zu sehen, wie unsere Webseite genutzt wird und wie wir sie verbessern können. Abhängig von Deinen Präferenzen können auch unsere eigenen Cookies verwendet werden, um Dir gezielte Werbung zu präsentieren, die Deinen persönlichen Interessen entspricht.</p>
+                      <h3 class="head-pop">Welche Art von Cookies verwenden wir?</h3>
+                      <p class="p-pop">Cookies sorgen dafür, dass du während deines Besuchs in unserem Online-Shop angemeldet bleibst, dass alle Artikel in deinem Warenkorb gespeichert werden, dass du sicher einkaufen kannst und dass die Website einwandfrei funktioniert. Cookies helfen uns auch dabei, zu sehen, wie unsere Webseite genutzt wird und wie wir sie verbessern können. Abhängig von Deinen Präferenzen können auch unsere eigenen Cookies verwendet werden, um Dir gezielte Werbung zu präsentieren, die Deinen persönlichen Interessen entspricht.</p>
+                      <h3 class="head-pop">Welche Art von Cookies verwenden wir?</h3>
+                      <p class="p-pop">Notwendige Cookies<br>Diese Cookies sind für das ordnungsgemäße Funktionieren der Website erforderlich. Einige der folgenden Aktionen können mit Hilfe dieser Cookies durchgeführt werden.</p>
+                      <h3 class="head-pop">Wie kann ich Cookies ausschalten oder entfernen?</h3>
+                      <p class="p-pop">Du kannst alle Cookies außer den notwendigen ablehnen. Du kannst die Einstellungen Deines Browsers so ändern, dass Cookies blockiert werden. Bei den meisten Browsern findest Du in der "Hilfe"-Funktion eine Erklärung, wie Du dies tun kannst. Wenn Du Cookies blockierst, kann es jedoch sein, dass Du nicht alle technischen Funktionen unserer Website nutzen kannst und dass sich dies negativ auf Dein Nutzererlebnis auswirkt.<br>Wir haben es Dir leicht gemacht, Deine Einwilligungen zu verwalten.
+
+                        Deine Einwilligung ändernWiderruf Deiner Einwilligung<br>Dies ist Deine eindeutige ID:<br>9819f529-7250-42a6-29f3-3527a45c5e18<br>Wenn du deine Einverständniserklärung einsehen möchtest, wende dich bitte an den Administrator der Website.
+
+                        Deine letzte Einwilligungsänderung wurde am registriert: 10.10.2024, 16:35</p>
+                    </div>
+                  </div>
+              </div>
             </div>
         </form>
     </div><!-- 'zf-templateWidth' ends -->
@@ -271,28 +287,6 @@
             }
         
             // Close the Modal
-            function closeModal1() {
-                document.getElementById("myModal1").style.display = "none";
-                document.getElementById("modalIframe1").src = ""; // Clear the iframe content
-            }
-        
-            // Close the modal when clicking outside of it
-            window.onclick = function(event) {
-                var modal = document.getElementById("myModal1");
-                if (event.target == modal) {
-                    closeModal1();
-                }
-            }
-        </script>
-        <script>
-            // Open the Modal and set iframe URL
-            function openModal2() {
-                var iframeUrl = "https://de.ooka.com/de/content/cookie-richtlinie";  // Replace with the external website URL
-                document.getElementById("modalIframe1").src = iframeUrl;
-                document.getElementById("myModal1").style.display = "block";
-            }
-        
-            // Close the Modal
             function closeModal() {
                 document.getElementById("myModal1").style.display = "none";
                 document.getElementById("modalIframe1").src = ""; // Clear the iframe content
@@ -306,6 +300,27 @@
                 }
             }
         </script>
+          <script>
+            // Get the popup, button, and close button elements
+            const popup = document.getElementById('popup');
+            const openPopupBtn = document.getElementById('openPopupBtn');
+            const closeBtn = document.getElementById('close');
+        
+            // Show the popup when the button is clicked
+            openPopupBtn.onclick = function() {
+              popup.style.display = 'block';
+            }
+            closeBtn.onclick = function() {
+                popup.style.display = 'none';
+            }
+
+    // Close the popup if the user clicks anywhere outside of the popup content
+    window.onclick = function(event) {
+      if (event.target === popup) {
+        popup.style.display = 'none';
+      }
+    }
+          </script>
 </body>
 
 </html>

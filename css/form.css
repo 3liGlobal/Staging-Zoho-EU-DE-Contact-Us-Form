@@ -1190,6 +1190,13 @@ ul {
   font-size: 28px;
   font-weight: bold;
 }
+#close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .close:hover,
 .close:focus {
@@ -1209,4 +1216,41 @@ iframe {
     width: 80%; 
     height: 80%; 
   }
+}
+   /* Style for the popup container */
+   .popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  }
+
+  /* Popup content */
+  .popup-content {
+    background-color: #fff;
+    margin: 5% auto; /* Centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    max-height: 60%; /* Set max height */
+    overflow-y: auto;
+  }
+  
+.head-pop{
+  font-size: 18px;
+  text-align: left;
+  padding:10px 0;
+}
+.p-pop{
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5em;
 }
